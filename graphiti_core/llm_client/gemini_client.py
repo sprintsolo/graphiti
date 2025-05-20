@@ -106,11 +106,11 @@ class GeminiClient(LLMClient):
             system_prompt = ''
             if response_model is not None:
                 # Get the schema from the Pydantic model
-                pydantic_schema = response_model.model_json_schema()
 
                 # Create instruction to output in the desired JSON format
                 system_prompt += (
-                    f'Do not include any explanatory text before or after the JSON.\n\n'
+                    f'Do not include any explanatory text before or after the JSON. '
+                    'Any extracted information should be returned in the same language as it was written in.'
                 )
 
             # Add messages content
