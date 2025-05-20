@@ -60,20 +60,20 @@ def node(context: dict[str, Any]) -> list[Message]:
             role='user',
             content=f"""
         <PREVIOUS MESSAGES>
-        {json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+        {json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
         </PREVIOUS MESSAGES>
         <CURRENT MESSAGE>
         {context['episode_content']}
         </CURRENT MESSAGE>
         <NEW ENTITY>
-        {json.dumps(context['extracted_node'], indent=2)}
+        {json.dumps(context['extracted_node'], indent=2,ensure_ascii=False)}
         </NEW ENTITY>
         <ENTITY TYPE DESCRIPTION>
-        {json.dumps(context['entity_type_description'], indent=2)}
+        {json.dumps(context['entity_type_description'], indent=2,ensure_ascii=False)}
         </ENTITY TYPE DESCRIPTION>
 
         <EXISTING ENTITIES>
-        {json.dumps(context['existing_nodes'], indent=2)}
+        {json.dumps(context['existing_nodes'], indent=2,ensure_ascii=False)}
         </EXISTING ENTITIES>
         
         Given the above EXISTING ENTITIES and their attributes, MESSAGE, and PREVIOUS MESSAGES; Determine if the NEW ENTITY extracted from the conversation
@@ -110,7 +110,7 @@ def nodes(context: dict[str, Any]) -> list[Message]:
             role='user',
             content=f"""
         <PREVIOUS MESSAGES>
-        {json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+        {json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
         </PREVIOUS MESSAGES>
         <CURRENT MESSAGE>
         {context['episode_content']}
@@ -135,7 +135,7 @@ def nodes(context: dict[str, Any]) -> list[Message]:
         }}
         
         <ENTITIES>
-        {json.dumps(context['extracted_nodes'], indent=2)}
+        {json.dumps(context['extracted_nodes'], indent=2,ensure_ascii=False)}
         </ENTITIES>
 
         For each of the above ENTITIES, determine if the entity is a duplicate of any of its duplication candidates.
@@ -172,7 +172,7 @@ def node_list(context: dict[str, Any]) -> list[Message]:
         Given the following context, deduplicate a list of nodes:
 
         Nodes:
-        {json.dumps(context['nodes'], indent=2)}
+        {json.dumps(context['nodes'], indent=2,ensure_ascii=False)}
 
         Task:
         1. Group nodes together such that all duplicate nodes are in the same list of uuids

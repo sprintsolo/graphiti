@@ -69,7 +69,7 @@ def edge(context: dict[str, Any]) -> list[Message]:
             role='user',
             content=f"""
 <PREVIOUS_MESSAGES>
-{json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+{json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
 </PREVIOUS_MESSAGES>
 
 <CURRENT_MESSAGE>
@@ -130,7 +130,7 @@ def reflexion(context: dict[str, Any]) -> list[Message]:
 
     user_prompt = f"""
 <PREVIOUS MESSAGES>
-{json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+{json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
 </PREVIOUS MESSAGES>
 <CURRENT MESSAGE>
 {context['episode_content']}
@@ -164,7 +164,7 @@ def extract_attributes(context: dict[str, Any]) -> list[Message]:
             content=f"""
 
         <MESSAGE>
-        {json.dumps(context['episode_content'], indent=2)}
+        {json.dumps(context['episode_content'], indent=2,ensure_ascii=False)}
         </MESSAGE>
         <REFERENCE TIME>
         {context['reference_time']}

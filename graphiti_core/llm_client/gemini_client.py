@@ -110,8 +110,7 @@ class GeminiClient(LLMClient):
 
                 # Create instruction to output in the desired JSON format
                 system_prompt += (
-                    f'Output ONLY valid JSON matching this schema: {json.dumps(pydantic_schema)}.\n'
-                    'Do not include any explanatory text before or after the JSON.\n\n'
+                    f'Do not include any explanatory text before or after the JSON.\n\n'
                 )
 
             # Add messages content
@@ -126,6 +125,7 @@ class GeminiClient(LLMClient):
                 gemini_messages.append(
                     types.Content(role=m.role, parts=[types.Part.from_text(text=m.content)])
                 )
+
 
             # Create generation config
             generation_config = types.GenerateContentConfig(
@@ -142,7 +142,7 @@ class GeminiClient(LLMClient):
                 contents=gemini_messages,
                 config=generation_config,
             )
-
+            print(response)
             # If this was a structured output request, parse the response into the Pydantic model
             if response_model is not None:
                 try:

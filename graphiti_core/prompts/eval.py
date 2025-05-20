@@ -68,7 +68,7 @@ def query_expansion(context: dict[str, Any]) -> list[Message]:
     Bob is asking Alice a question, are you able to rephrase the question into a simpler one about Alice in the third person
     that maintains the relevant context?
     <QUESTION>
-    {json.dumps(context['query'])}
+    {json.dumps(context['query'],ensure_ascii=False)}
     </QUESTION>
     """
     return [
@@ -84,10 +84,10 @@ def qa_prompt(context: dict[str, Any]) -> list[Message]:
     Your task is to briefly answer the question in the way that you think Alice would answer the question.
     You are given the following entity summaries and facts to help you determine the answer to your question.
     <ENTITY_SUMMARIES>
-    {json.dumps(context['entity_summaries'])}
+    {json.dumps(context['entity_summaries'],ensure_ascii=False)}
     </ENTITY_SUMMARIES>
     <FACTS>
-    {json.dumps(context['facts'])}
+    {json.dumps(context['facts'],ensure_ascii=False)}
     </FACTS>
     <QUESTION>
     {context['query']}

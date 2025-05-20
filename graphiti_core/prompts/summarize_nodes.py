@@ -59,7 +59,7 @@ def summarize_pair(context: dict[str, Any]) -> list[Message]:
         Summaries must be under 250 words.
 
         Summaries:
-        {json.dumps(context['node_summaries'], indent=2)}
+        {json.dumps(context['node_summaries'], indent=2,ensure_ascii=False)}
         """,
         ),
     ]
@@ -76,8 +76,8 @@ def summarize_context(context: dict[str, Any]) -> list[Message]:
             content=f"""
             
         <MESSAGES>
-        {json.dumps(context['previous_episodes'], indent=2)}
-        {json.dumps(context['episode_content'], indent=2)}
+        {json.dumps(context['previous_episodes'], indent=2,ensure_ascii=False)}
+        {json.dumps(context['episode_content'], indent=2,ensure_ascii=False)}
         </MESSAGES>
         
         Given the above MESSAGES and the following ENTITY name, create a summary for the ENTITY. Your summary must only use
@@ -100,7 +100,7 @@ def summarize_context(context: dict[str, Any]) -> list[Message]:
         </ENTITY CONTEXT>
         
         <ATTRIBUTES>
-        {json.dumps(context['attributes'], indent=2)}
+        {json.dumps(context['attributes'], indent=2,ensure_ascii=False)}
         </ATTRIBUTES>
         """,
         ),
@@ -120,7 +120,7 @@ def summary_description(context: dict[str, Any]) -> list[Message]:
         Summaries must be under 250 words.
 
         Summary:
-        {json.dumps(context['summary'], indent=2)}
+        {json.dumps(context['summary'], indent=2,ensure_ascii=False)}
         """,
         ),
     ]

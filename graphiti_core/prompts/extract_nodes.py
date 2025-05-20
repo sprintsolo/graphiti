@@ -76,7 +76,7 @@ def extract_message(context: dict[str, Any]) -> list[Message]:
 
     user_prompt = f"""
 <PREVIOUS MESSAGES>
-{json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+{json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
 </PREVIOUS MESSAGES>
 
 <CURRENT MESSAGE>
@@ -183,7 +183,7 @@ def reflexion(context: dict[str, Any]) -> list[Message]:
 
     user_prompt = f"""
 <PREVIOUS MESSAGES>
-{json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+{json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
 </PREVIOUS MESSAGES>
 <CURRENT MESSAGE>
 {context['episode_content']}
@@ -207,7 +207,7 @@ def classify_nodes(context: dict[str, Any]) -> list[Message]:
 
     user_prompt = f"""
     <PREVIOUS MESSAGES>
-    {json.dumps([ep for ep in context['previous_episodes']], indent=2)}
+    {json.dumps([ep for ep in context['previous_episodes']], indent=2,ensure_ascii=False)}
     </PREVIOUS MESSAGES>
     <CURRENT MESSAGE>
     {context['episode_content']}
@@ -245,8 +245,8 @@ def extract_attributes(context: dict[str, Any]) -> list[Message]:
             content=f"""
 
         <MESSAGES>
-        {json.dumps(context['previous_episodes'], indent=2)}
-        {json.dumps(context['episode_content'], indent=2)}
+        {json.dumps(context['previous_episodes'], indent=2,ensure_ascii=False)}
+        {json.dumps(context['episode_content'], indent=2,ensure_ascii=False)}
         </MESSAGES>
 
         Given the above MESSAGES and the following ENTITY, update any of its attributes based on the information provided
