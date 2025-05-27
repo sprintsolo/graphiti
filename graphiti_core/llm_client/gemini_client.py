@@ -100,68 +100,100 @@ class GeminiClient(LLMClient):
             RefusalError: If the content is blocked by the model.
             Exception: If there is an error generating the response.
         """
-        try:
-            gemini_messages: list[types.Content] = []
-            # If a response model is provided, add schema for structured output
-            system_prompt = ''
-            if response_model is not None:
-                # Get the schema from the Pydantic model
+        import asyncio
+        
+        # 재시도 로직을 위한 설정
+        max_retries = 5
+        retry_count = 0
+        consecutive_errors = 0
+        
+        while retry_count < max_retries:
+            try:
+                gemini_messages: list[types.Content] = []
+                # If a response model is provided, add schema for structured output
+                system_prompt = ''
+                if response_model is not None:
+                    # Get the schema from the Pydantic model
 
-                # Create instruction to output in the desired JSON format
-                system_prompt += (
-                    f'Do not include any explanatory text before or after the JSON. '
-                    'Any extracted information should be returned in the same language as it was written in.'
+                    # Create instruction to output in the desired JSON format
+                    system_prompt += (
+                        f'Do not include any explanatory text before or after the JSON. '
+                        'Any extracted information should be returned in the same language as it was written in.'
+                    )
+
+                # Add messages content
+                # First check for a system message
+                if messages and messages[0].role == 'system':
+                    system_prompt = f'{messages[0].content}\n\n {system_prompt}'
+                    messages = messages[1:]
+
+                # Add the rest of the messages
+                for m in messages:
+                    m.content = self._clean_input(m.content)
+                    gemini_messages.append(
+                        types.Content(role=m.role, parts=[types.Part.from_text(text=m.content)])
+                    )
+
+
+                # Create generation config
+                generation_config = types.GenerateContentConfig(
+                    temperature=self.temperature,
+                    max_output_tokens=max_tokens or self.max_tokens,
+                    response_mime_type='application/json' if response_model else None,
+                    response_schema=response_model if response_model else None,
+                    system_instruction=system_prompt,
                 )
 
-            # Add messages content
-            # First check for a system message
-            if messages and messages[0].role == 'system':
-                system_prompt = f'{messages[0].content}\n\n {system_prompt}'
-                messages = messages[1:]
-
-            # Add the rest of the messages
-            for m in messages:
-                m.content = self._clean_input(m.content)
-                gemini_messages.append(
-                    types.Content(role=m.role, parts=[types.Part.from_text(text=m.content)])
+                # Generate content using the simple string approach
+                response = await self.client.aio.models.generate_content(
+                    model=self.model or DEFAULT_MODEL,
+                    contents=gemini_messages,
+                    config=generation_config,
                 )
+                
+                # 성공시 연속 오류 카운터 초기화
+                consecutive_errors = 0
+                
+                # If this was a structured output request, parse the response into the Pydantic model
+                if response_model is not None:
+                    try:
+                        validated_model = response_model.model_validate(json.loads(response.text))
 
+                        # Return as a dictionary for API consistency
+                        return validated_model.model_dump()
+                    except Exception as e:
+                        raise Exception(f'Failed to parse structured response: {e}') from e
 
-            # Create generation config
-            generation_config = types.GenerateContentConfig(
-                temperature=self.temperature,
-                max_output_tokens=max_tokens or self.max_tokens,
-                response_mime_type='application/json' if response_model else None,
-                response_schema=response_model if response_model else None,
-                system_instruction=system_prompt,
-            )
+                # Otherwise, return the response text as a dictionary
+                return {'content': response.text}
 
-            # Generate content using the simple string approach
-            response = await self.client.aio.models.generate_content(
-                model=self.model or DEFAULT_MODEL,
-                contents=gemini_messages,
-                config=generation_config,
-            )
-            print(response)
-            # If this was a structured output request, parse the response into the Pydantic model
-            if response_model is not None:
-                try:
-                    validated_model = response_model.model_validate(json.loads(response.text))
-
-                    # Return as a dictionary for API consistency
-                    return validated_model.model_dump()
-                except Exception as e:
-                    raise Exception(f'Failed to parse structured response: {e}') from e
-
-            # Otherwise, return the response text as a dictionary
-            return {'content': response.text}
-
-        except Exception as e:
-            # Check if it's a rate limit error
-            if 'rate limit' in str(e).lower() or 'quota' in str(e).lower():
-                raise RateLimitError from e
-            logger.error(f'Error in generating LLM response: {e}')
-            raise
+            except Exception as e:
+                # 429 오류나 rate limit, quota 관련 메시지 처리
+                error_message = str(e).lower()
+                if ('429' in error_message or 
+                    'rate limit' in error_message or 
+                    'quota' in error_message or 
+                    'resource_exhausted' in error_message):
+                    
+                    retry_count += 1
+                    consecutive_errors += 1
+                    
+                    # 지수 백오프 적용 (30초, 60초, 120초 등)
+                    wait_time = 30 * (2 ** (consecutive_errors - 1))
+                    if wait_time > 300:  # 최대 5분까지만 대기
+                        wait_time = 300
+                    
+                    logger.warning(f"API rate limit reached. Waiting for {wait_time} seconds before retry {retry_count}/{max_retries}. Error: {str(e)}")
+                    await asyncio.sleep(wait_time)
+                else:
+                    # 다른 오류는 즉시 예외 발생
+                    logger.error(f'Error in generating LLM response: {e}')
+                    raise
+        
+        # 최대 재시도 횟수 초과 시 RateLimitError 발생
+        if retry_count == max_retries:
+            logger.error(f"Failed to generate response after {max_retries} retries due to rate limits")
+            raise RateLimitError(f"Maximum retry attempts ({max_retries}) exceeded for rate limit")
 
     async def generate_response(
         self,

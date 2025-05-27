@@ -337,13 +337,28 @@ async def node_fulltext_search(
         return []
 
     filter_query, filter_params = node_search_filter_query_constructor(search_filter)
-
+    
+    # Base query with Entity label
+    base_query = """
+        CALL db.index.fulltext.queryNodes("node_name_and_summary", $query, {limit: $limit}) 
+        YIELD node AS n, score
+        WHERE n:Entity
+    """
+    
+    # Add node label filtering if specified
+    label_filter = ""
+    if 'node_labels' in filter_params and filter_params['node_labels']:
+        labels = filter_params['node_labels']
+        label_conditions = []
+        for i, label in enumerate(labels):
+            label_conditions.append(f"n:{label}")
+        
+        if label_conditions:
+            label_filter = " AND (" + " OR ".join(label_conditions) + ")"
+    
     query = (
-        """
-                                                                                        CALL db.index.fulltext.queryNodes("node_name_and_summary", $query, {limit: $limit}) 
-                                                                                        YIELD node AS n, score
-                                                                                        WHERE n:Entity
-                                                                                        """
+        base_query
+        + label_filter
         + filter_query
         + ENTITY_NODE_RETURN
         + """
@@ -383,6 +398,20 @@ async def node_similarity_search(
 
     filter_query, filter_params = node_search_filter_query_constructor(search_filter)
     query_params.update(filter_params)
+    
+    # Add node label filtering if specified
+    label_filter = ""
+    if 'node_labels' in filter_params and filter_params['node_labels']:
+        labels = filter_params['node_labels']
+        label_conditions = []
+        for i, label in enumerate(labels):
+            label_conditions.append(f"n:{label}")
+        
+        if label_conditions:
+            if group_filter_query:
+                label_filter = " AND (" + " OR ".join(label_conditions) + ")"
+            else:
+                label_filter = " WHERE " + " OR ".join(label_conditions)
 
     records, _, _ = await driver.execute_query(
         RUNTIME_QUERY
@@ -390,6 +419,7 @@ async def node_similarity_search(
             MATCH (n:Entity)
             """
         + group_filter_query
+        + label_filter
         + filter_query
         + """
             WITH n, vector.similarity.cosine(n.name_embedding, $search_vector) AS score

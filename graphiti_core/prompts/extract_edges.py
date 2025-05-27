@@ -111,6 +111,8 @@ You may use information from the PREVIOUS MESSAGES only to disambiguate referenc
 5. The `fact_text` should quote or closely paraphrase the original source sentence(s).
 6. Use `REFERENCE_TIME` to resolve vague or relative temporal expressions (e.g., "last week").
 7. Do **not** hallucinate or infer temporal bounds from unrelated events.
+8. Do not use pronouns like "It", "They", etc. Always use the full entity names instead of pronouns to ensure clarity and prevent ambiguity.
+9. fact_text should be a single, complete sentence.
 
 # DATETIME RULES
 

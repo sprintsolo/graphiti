@@ -26,10 +26,10 @@ logger = logging.getLogger(__name__)
 # Schema for company information
 class CompanyInfo(BaseModel):
     """Schema for company information"""
-    Industry: str = Field(description="The industry the company operates in")
+    Industry: str = Field(description="The industry the company operates in, using GICS Industry Group classification")
     Country_Region: str = Field(description="The country/region where the company is headquartered")
     Number_of_employee: int | str = Field(description="The approximate number of employees (just the number)")
-    Description: str = Field(description="A brief description of the company")
+    Description: str = Field(description="A brief one-sentence description of the company")
 
 class CompanyResearcher:
     """Class to research company information using Gemini API with Google Search grounding."""
@@ -130,10 +130,36 @@ class CompanyResearcher:
                     text=f"""Research and provide detailed information about the company: {company_name}
                     
                     Focus on finding these specific details:
-                    1. Industry the company operates in
+                    1. Industry the company operates in (please use GICS Industry Group classification) - IMPORTANT: Always use the English industry name even when responding in other languages
                     2. Country/Region where the company is headquartered
                     3. Number of employees (approximate)
-                    4. A brief description of what the company does
+                    4. A brief one-sentence description of what the company does (make it as concise as possible)
+                    
+                    For the industry classification, specifically select ONE from this exact list of GICS Industry Groups:
+                    1. Energy
+                    2. Materials
+                    3. Capital Goods
+                    4. Commercial & Professional Services
+                    5. Transportation
+                    6. Automobiles & Components
+                    7. Consumer Durables & Apparel
+                    8. Consumer Services
+                    9. Media & Entertainment
+                    10. Retailing
+                    11. Food & Staples Retailing
+                    12. Food, Beverage & Tobacco
+                    13. Household & Personal Products
+                    14. Health Care Equipment & Services
+                    15. Pharmaceuticals, Biotechnology & Life Sciences
+                    16. Banks
+                    17. Diversified Financials
+                    18. Insurance
+                    19. Real Estate
+                    20. Software & Services
+                    21. Technology Hardware & Equipment
+                    22. Semiconductors & Semiconductor Equipment
+                    23. Telecommunication Services
+                    24. Utilities
                     
                     Provide comprehensive information so I can understand the company well.
                     """
@@ -166,6 +192,7 @@ class CompanyResearcher:
                 return search_result
             else:
                 logger.error("Empty response from search query")
+                print(response)
                 return None
                 
         except Exception as e:
@@ -195,6 +222,32 @@ class CompanyResearcher:
                     {search_info}
                     
                     Based on this information, provide the company details in a structured format.
+                    
+                    Make sure the Industry field uses EXACTLY one of these GICS Industry Group classifications:
+                    1. Energy
+                    2. Materials
+                    3. Capital Goods
+                    4. Commercial & Professional Services
+                    5. Transportation
+                    6. Automobiles & Components
+                    7. Consumer Durables & Apparel
+                    8. Consumer Services
+                    9. Media & Entertainment
+                    10. Retailing
+                    11. Food & Staples Retailing
+                    12. Food, Beverage & Tobacco
+                    13. Household & Personal Products
+                    14. Health Care Equipment & Services
+                    15. Pharmaceuticals, Biotechnology & Life Sciences
+                    16. Banks
+                    17. Diversified Financials
+                    18. Insurance
+                    19. Real Estate
+                    20. Software & Services
+                    21. Technology Hardware & Equipment
+                    22. Semiconductors & Semiconductor Equipment
+                    23. Telecommunication Services
+                    24. Utilities
                     """
                 )]
             )

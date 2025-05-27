@@ -54,10 +54,8 @@ def node_search_filter_query_constructor(
     filter_query: LiteralString = ''
     filter_params: dict[str, Any] = {}
 
-    if filters.node_labels is not None:
-        node_labels = '|'.join(filters.node_labels)
-        node_label_filter = ' AND n:' + node_labels
-        filter_query += node_label_filter
+    if filters.node_labels is not None and len(filters.node_labels) > 0:
+        filter_params['node_labels'] = filters.node_labels
 
     return filter_query, filter_params
 

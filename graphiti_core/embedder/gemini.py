@@ -42,7 +42,8 @@ class GeminiEmbedder(EmbedderClient):
 
         # Configure the Gemini API
         self.client = genai.Client(
-            api_key=config.api_key,
+            #api_key=config.api_key,
+            vertexai=True, project='gen-lang-client-0768783796', location='us-central1'
         )
 
     async def create(
@@ -62,7 +63,7 @@ class GeminiEmbedder(EmbedderClient):
         result = await self.client.aio.models.embed_content(
             model=self.config.embedding_model or DEFAULT_EMBEDDING_MODEL,
             contents=[input_data],
-            config=types.EmbedContentConfig(output_dimensionality=self.config.embedding_dim),
+            config=types.EmbedContentConfig(output_dimensionality=self.config.embedding_dim,task_type="RETRIEVAL_DOCUMENT"),
         )
 
         return result.embeddings[0].values
@@ -76,3 +77,4 @@ class GeminiEmbedder(EmbedderClient):
         )
 
         return [embedding.values for embedding in result.embeddings]
+
