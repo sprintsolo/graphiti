@@ -42,6 +42,11 @@ class LLMConfig:
         temperature: float = DEFAULT_TEMPERATURE,
         max_tokens: int = DEFAULT_MAX_TOKENS,
         small_model: str | None = None,
+        # Vertex AI / Service Account 관련 필드
+        service_account_key_path: str | None = None,
+        service_account_key_json: dict | None = None,
+        project_id: str | None = None,
+        location: str = 'us-central1',
     ):
         """
         Initialize the LLMConfig with the provided parameters.
@@ -66,3 +71,8 @@ class LLMConfig:
         self.small_model = small_model
         self.temperature = temperature
         self.max_tokens = max_tokens
+        # Vertex AI / Service Account 관련 필드
+        self.service_account_key_path = service_account_key_path
+        self.service_account_key_json = service_account_key_json
+        self.project_id = project_id
+        self.location = location

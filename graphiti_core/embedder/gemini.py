@@ -15,6 +15,10 @@ limitations under the License.
 """
 
 from collections.abc import Iterable
+import os
+import json
+from google.auth import credentials
+from google.oauth2 import service_account
 
 from google import genai  # type: ignore
 from google.genai import types  # type: ignore
@@ -28,6 +32,10 @@ DEFAULT_EMBEDDING_MODEL = 'embedding-001'
 class GeminiEmbedderConfig(EmbedderConfig):
     embedding_model: str = Field(default=DEFAULT_EMBEDDING_MODEL)
     api_key: str | None = None
+    service_account_key_path: str | None = None
+    service_account_key_json: dict | None = None
+    project_id: str | None = None
+    location: str = Field(default='us-central1')
 
 
 class GeminiEmbedder(EmbedderClient):
@@ -40,11 +48,58 @@ class GeminiEmbedder(EmbedderClient):
             config = GeminiEmbedderConfig()
         self.config = config
 
-        # Configure the Gemini API
-        self.client = genai.Client(
-            #api_key=config.api_key,
-            vertexai=True, project='gen-lang-client-0768783796', location='us-central1'
-        )
+        # Configure credentials for Vertex AI
+        credentials_obj = None
+        
+        # Define required scopes for Vertex AI
+        scopes = ['https://www.googleapis.com/auth/cloud-platform']
+        
+        if config.service_account_key_json:
+            # Use service account key JSON directly
+            credentials_obj = service_account.Credentials.from_service_account_info(
+                config.service_account_key_json,
+                scopes=scopes
+            )
+        elif config.service_account_key_path:
+            # Use service account key file path
+            credentials_obj = service_account.Credentials.from_service_account_file(
+                config.service_account_key_path,
+                scopes=scopes
+            )
+        elif os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
+            # Use environment variable for service account key file
+            credentials_obj = service_account.Credentials.from_service_account_file(
+                os.getenv('GOOGLE_APPLICATION_CREDENTIALS'),
+                scopes=scopes
+            )
+        
+        # Ensure credentials are properly scoped
+        if credentials_obj and not credentials_obj.valid:
+            try:
+                from google.auth.transport.requests import Request
+                credentials_obj.refresh(Request())
+            except Exception:
+                # If refresh fails, try without explicit credentials
+                credentials_obj = None
+        
+        # Get project ID
+        project_id = config.project_id or os.getenv('GOOGLE_CLOUD_PROJECT', 'gen-lang-client-0768783796')
+        
+        # Configure the Gemini API with Vertex AI
+        if credentials_obj:
+            self.client = genai.Client(
+                vertexai=True, 
+                project=project_id, 
+                location=config.location,
+                credentials=credentials_obj
+            )
+        else:
+            # Fallback to default credentials (ADC)
+            self.client = genai.Client(
+                vertexai=True, 
+                project=project_id, 
+                location=config.location
+            )
 
     async def create(
         self, input_data: str | list[str] | Iterable[int] | Iterable[Iterable[int]]

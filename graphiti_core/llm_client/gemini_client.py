@@ -17,6 +17,9 @@ limitations under the License.
 import json
 import logging
 import typing
+import os
+from google.auth import credentials
+from google.oauth2 import service_account
 
 from google import genai  # type: ignore
 from google.genai import types  # type: ignore
@@ -71,10 +74,46 @@ class GeminiClient(LLMClient):
         super().__init__(config, cache)
 
         self.model = config.model
+        
+        # Configure credentials for Vertex AI or API key
+        credentials_obj = None
+        use_vertexai = False
+        
+        # Check for service account credentials
+        if hasattr(config, 'service_account_key_json') and config.service_account_key_json:
+            credentials_obj = service_account.Credentials.from_service_account_info(
+                config.service_account_key_json
+            )
+            use_vertexai = True
+        elif hasattr(config, 'service_account_key_path') and config.service_account_key_path:
+            credentials_obj = service_account.Credentials.from_service_account_file(
+                config.service_account_key_path
+            )
+            use_vertexai = True
+        elif os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
+            credentials_obj = service_account.Credentials.from_service_account_file(
+                os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+            )
+            use_vertexai = True
+        
         # Configure the Gemini API
-        self.client = genai.Client(
-            api_key=config.api_key,
-        )
+        if use_vertexai and credentials_obj:
+            # Use Vertex AI with service account
+            project_id = getattr(config, 'project_id', None) or os.getenv('GOOGLE_CLOUD_PROJECT', 'gen-lang-client-0768783796')
+            location = getattr(config, 'location', 'us-central1')
+            
+            self.client = genai.Client(
+                vertexai=True,
+                project=project_id,
+                location=location,
+                credentials=credentials_obj
+            )
+        else:
+            # Use API key
+            self.client = genai.Client(
+                api_key=config.api_key,
+            )
+        
         self.max_tokens = max_tokens
 
     async def _generate_response(

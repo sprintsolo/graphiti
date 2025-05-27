@@ -16,12 +16,15 @@ limitations under the License.
 
 import asyncio
 import logging
+import os
 from typing import Any, List
 
 import numpy as np
 from google import genai
 from google.genai import types
 from google.genai.errors import ClientError
+from google.auth import credentials
+from google.oauth2 import service_account
 
 from ..helpers import semaphore_gather
 from ..llm_client import LLMConfig, RateLimitError
@@ -53,7 +56,42 @@ class GeminiRerankerClient(CrossEncoderClient):
 
         self.config = config
         if client is None:
-            self.client = genai.Client(api_key=config.api_key)
+            # Configure credentials for Vertex AI or API key
+            credentials_obj = None
+            use_vertexai = False
+            
+            # Check for service account credentials
+            if hasattr(config, 'service_account_key_json') and config.service_account_key_json:
+                credentials_obj = service_account.Credentials.from_service_account_info(
+                    config.service_account_key_json
+                )
+                use_vertexai = True
+            elif hasattr(config, 'service_account_key_path') and config.service_account_key_path:
+                credentials_obj = service_account.Credentials.from_service_account_file(
+                    config.service_account_key_path
+                )
+                use_vertexai = True
+            elif os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
+                credentials_obj = service_account.Credentials.from_service_account_file(
+                    os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+                )
+                use_vertexai = True
+            
+            # Configure the Gemini API
+            if use_vertexai and credentials_obj:
+                # Use Vertex AI with service account
+                project_id = getattr(config, 'project_id', None) or os.getenv('GOOGLE_CLOUD_PROJECT', 'gen-lang-client-0768783796')
+                location = getattr(config, 'location', 'us-central1')
+                
+                self.client = genai.Client(
+                    vertexai=True,
+                    project=project_id,
+                    location=location,
+                    credentials=credentials_obj
+                )
+            else:
+                # Use API key
+                self.client = genai.Client(api_key=config.api_key)
         else:
             self.client = client
             
