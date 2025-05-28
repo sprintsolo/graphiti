@@ -175,26 +175,39 @@ async def edge_search(
     if config is None:
         return []
 
-    search_results: list[list[EntityEdge]] = list(
-        await semaphore_gather(
-            *[
-                edge_fulltext_search(driver, query, search_filter, group_ids, 2 * limit),
-                edge_similarity_search(
-                    driver,
-                    query_vector,
-                    None,
-                    None,
-                    search_filter,
-                    group_ids,
-                    2 * limit,
-                    config.sim_min_score,
-                ),
-                edge_bfs_search(
-                    driver, bfs_origin_node_uuids, config.bfs_max_depth, search_filter, 2 * limit
-                ),
-            ]
+    # 선택된 검색 방법들만 실행
+    search_tasks = []
+    
+    if EdgeSearchMethod.bm25 in config.search_methods:
+        search_tasks.append(
+            edge_fulltext_search(driver, query, search_filter, group_ids, 2 * limit)
         )
-    )
+    
+    if EdgeSearchMethod.cosine_similarity in config.search_methods:
+        search_tasks.append(
+            edge_similarity_search(
+                driver,
+                query_vector,
+                None,
+                None,
+                search_filter,
+                group_ids,
+                2 * limit,
+                config.sim_min_score,
+            )
+        )
+    
+    if EdgeSearchMethod.bfs in config.search_methods:
+        search_tasks.append(
+            edge_bfs_search(
+                driver, bfs_origin_node_uuids, config.bfs_max_depth, search_filter, 2 * limit
+            )
+        )
+    
+    # 선택된 검색 방법들만 실행
+    search_results: list[list[EntityEdge]] = []
+    if search_tasks:
+        search_results = list(await semaphore_gather(*search_tasks))
 
     if EdgeSearchMethod.bfs in config.search_methods and bfs_origin_node_uuids is None:
         source_node_uuids = [edge.source_node_uuid for result in search_results for edge in result]
@@ -276,19 +289,32 @@ async def node_search(
     if config is None:
         return []
 
-    search_results: list[list[EntityNode]] = list(
-        await semaphore_gather(
-            *[
-                node_fulltext_search(driver, query, search_filter, group_ids, 2 * limit),
-                node_similarity_search(
-                    driver, query_vector, search_filter, group_ids, 2 * limit, config.sim_min_score
-                ),
-                node_bfs_search(
-                    driver, bfs_origin_node_uuids, search_filter, config.bfs_max_depth, 2 * limit
-                ),
-            ]
+    # 선택된 검색 방법들만 실행
+    search_tasks = []
+    
+    if NodeSearchMethod.bm25 in config.search_methods:
+        search_tasks.append(
+            node_fulltext_search(driver, query, search_filter, group_ids, 2 * limit)
         )
-    )
+    
+    if NodeSearchMethod.cosine_similarity in config.search_methods:
+        search_tasks.append(
+            node_similarity_search(
+                driver, query_vector, search_filter, group_ids, 2 * limit, config.sim_min_score
+            )
+        )
+    
+    if NodeSearchMethod.bfs in config.search_methods:
+        search_tasks.append(
+            node_bfs_search(
+                driver, bfs_origin_node_uuids, search_filter, config.bfs_max_depth, 2 * limit
+            )
+        )
+    
+    # 선택된 검색 방법들만 실행
+    search_results: list[list[EntityNode]] = []
+    if search_tasks:
+        search_results = list(await semaphore_gather(*search_tasks))
 
     if NodeSearchMethod.bfs in config.search_methods and bfs_origin_node_uuids is None:
         origin_node_uuids = [node.uuid for result in search_results for node in result]
@@ -357,13 +383,26 @@ async def episode_search(
     if config is None:
         return []
 
-    search_results: list[list[EpisodicNode]] = list(
-        await semaphore_gather(
-            *[
-                episode_fulltext_search(driver, query, search_filter, group_ids, 2 * limit),
-            ]
-        )
-    )
+    # 선택된 검색 방법들만 실행
+    search_tasks = []
+    
+    if hasattr(config, 'search_methods'):
+        from graphiti_core.search.search_config import EpisodeSearchMethod
+        
+        if EpisodeSearchMethod.bm25 in config.search_methods:
+            search_tasks.append(
+                episode_fulltext_search(driver, query, search_filter, group_ids, 2 * limit)
+            )
+    else:
+        # 기본값: BM25 검색 실행 (하위 호환성)
+        search_tasks = [
+            episode_fulltext_search(driver, query, search_filter, group_ids, 2 * limit),
+        ]
+    
+    # 선택된 검색 방법들만 실행
+    search_results: list[list[EpisodicNode]] = []
+    if search_tasks:
+        search_results = list(await semaphore_gather(*search_tasks))
 
     search_result_uuids = [[episode.uuid for episode in result] for result in search_results]
     episode_uuid_map = {episode.uuid: episode for result in search_results for episode in result}
@@ -404,16 +443,36 @@ async def community_search(
     if config is None:
         return []
 
-    search_results: list[list[CommunityNode]] = list(
-        await semaphore_gather(
-            *[
-                community_fulltext_search(driver, query, group_ids, 2 * limit),
+    # 선택된 검색 방법들만 실행
+    search_tasks = []
+    
+    if hasattr(config, 'search_methods'):
+        from graphiti_core.search.search_config import CommunitySearchMethod
+        
+        if CommunitySearchMethod.bm25 in config.search_methods:
+            search_tasks.append(
+                community_fulltext_search(driver, query, group_ids, 2 * limit)
+            )
+        
+        if CommunitySearchMethod.cosine_similarity in config.search_methods:
+            search_tasks.append(
                 community_similarity_search(
                     driver, query_vector, group_ids, 2 * limit, config.sim_min_score
-                ),
-            ]
-        )
-    )
+                )
+            )
+    else:
+        # 기본값: 모든 검색 방법 실행 (하위 호환성)
+        search_tasks = [
+            community_fulltext_search(driver, query, group_ids, 2 * limit),
+            community_similarity_search(
+                driver, query_vector, group_ids, 2 * limit, config.sim_min_score
+            ),
+        ]
+    
+    # 선택된 검색 방법들만 실행
+    search_results: list[list[CommunityNode]] = []
+    if search_tasks:
+        search_results = list(await semaphore_gather(*search_tasks))
 
     search_result_uuids = [[community.uuid for community in result] for result in search_results]
     community_uuid_map = {
