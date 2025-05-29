@@ -60,22 +60,37 @@ class GeminiRerankerClient(CrossEncoderClient):
             credentials_obj = None
             use_vertexai = False
             
+            # Define required scopes for Vertex AI
+            scopes = ['https://www.googleapis.com/auth/cloud-platform']
+            
             # Check for service account credentials
             if hasattr(config, 'service_account_key_json') and config.service_account_key_json:
                 credentials_obj = service_account.Credentials.from_service_account_info(
-                    config.service_account_key_json
+                    config.service_account_key_json,
+                    scopes=scopes
                 )
                 use_vertexai = True
             elif hasattr(config, 'service_account_key_path') and config.service_account_key_path:
                 credentials_obj = service_account.Credentials.from_service_account_file(
-                    config.service_account_key_path
+                    config.service_account_key_path,
+                    scopes=scopes
                 )
                 use_vertexai = True
             elif os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
                 credentials_obj = service_account.Credentials.from_service_account_file(
-                    os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+                    os.getenv('GOOGLE_APPLICATION_CREDENTIALS'),
+                    scopes=scopes
                 )
                 use_vertexai = True
+            
+            # Ensure credentials are properly scoped
+            if credentials_obj and not credentials_obj.valid:
+                try:
+                    from google.auth.transport.requests import Request
+                    credentials_obj.refresh(Request())
+                except Exception:
+                    # If refresh fails, try without explicit credentials
+                    credentials_obj = None
             
             # Configure the Gemini API
             if use_vertexai and credentials_obj:

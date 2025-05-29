@@ -105,7 +105,7 @@ embedding_model = os.environ.get("EMBEDDING_MODEL", "text-multilingual-embedding
 embedding_dim = int(os.environ.get("EMBEDDING_DIM", "768"))
 
 # Vertex AI / Service Account configuration
-service_account_key_path = os.environ.get("SERVICE_ACCOUNT_KEY_PATH")
+service_account_key_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
 location = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1")
 

@@ -334,7 +334,7 @@ class Graphiti:
             previous_episodes = (
                 await self.retrieve_episodes(
                     reference_time,
-                    last_n=RELEVANT_SCHEMA_LIMIT,
+                    last_n=0,#RELEVANT_SCHEMA_LIMIT
                     group_ids=[group_id],
                     source=source,
                 )

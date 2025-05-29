@@ -31,6 +31,7 @@ from graphiti_core.nodes import EpisodeType
 from graphiti_core.search.search_config_recipes import NODE_HYBRID_SEARCH_RRF
 from graphiti_core.llm_client.gemini_client import GeminiClient, LLMConfig
 from graphiti_core.embedder.gemini import GeminiEmbedder, GeminiEmbedderConfig
+from graphiti_core.cross_encoder.gemini_reranker_client import GeminiRerankerClient
 from pydantic import BaseModel, Field
 from company_research import CompanyResearcher
 
@@ -85,10 +86,24 @@ neo4j_uri = os.environ.get('NEO4J_URI', 'bolt://localhost:7687')
 neo4j_user = os.environ.get('NEO4J_USER', 'neo4j')
 neo4j_password = os.environ.get('NEO4J_PASSWORD', 'password')
 
+# Vertex AI / Service Account configuration
+service_account_key_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
+location = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1")
+
+# 서비스 계정 키 JSON을 직접 로드하는 예시 (선택사항)
+service_account_key_json = None
+if service_account_key_path and os.path.exists(service_account_key_path):
+    with open(service_account_key_path, 'r') as f:
+        service_account_key_json = json.load(f)
+
 # Airtable connection parameters
 airtable_api_key = os.environ.get('AIRTABLE_API_KEY')
 airtable_base_id = os.environ.get('AIRTABLE_BASE_ID')
 contacts_table_id = os.environ.get('AIRTABLE_CONTACTS_TABLE_ID', 'Contacts')
+
+if not api_key and not service_account_key_json and not service_account_key_path:
+    raise ValueError("LLM_API_KEY 또는 서비스 계정 키가 설정되어야 합니다")
 
 if not neo4j_uri or not neo4j_user or not neo4j_password:
     raise ValueError('NEO4J_URI, NEO4J_USER, and NEO4J_PASSWORD must be set')
@@ -165,7 +180,7 @@ async def import_airtable_data_to_graphiti(graphiti):
     consecutive_errors = 0
     
     # Import contacts data and research their associated companies
-    for i, contact in enumerate(contacts[774:], start=774):
+    for i, contact in enumerate(contacts[:], start=0):
         fields = contact['fields']
         company_name = fields.get('Company Name', '').strip() if fields.get('Company Name') else None
         
@@ -353,25 +368,35 @@ async def main():
     # Initialize Graphiti with Neo4j connection
     #graphiti = Graphiti(neo4j_uri, neo4j_user, neo4j_password)
 
-    graphiti = Graphiti(
-    neo4j_uri,
-    neo4j_user,
-    neo4j_password,
-    llm_client=GeminiClient(
-        config=LLMConfig(
-            api_key=api_key,
-            model=llm_model
-        )
-    ),
-    embedder=GeminiEmbedder(
-        config=GeminiEmbedderConfig(
-            api_key=api_key,
-            embedding_model=embedding_model,
-            embedding_dim=embedding_dim
-        )
+    # LLM 설정 (서비스 계정 키 또는 API 키 사용)
+    llm_config = LLMConfig(
+        api_key=api_key,
+        model=llm_model,
+        service_account_key_path=service_account_key_path,
+        service_account_key_json=service_account_key_json,
+        project_id=project_id,
+        location=location
     )
-)
+    
+    # Embedder 설정 (서비스 계정 키 또는 API 키 사용)
+    embedder_config = GeminiEmbedderConfig(
+        api_key=api_key,
+        embedding_model=embedding_model,
+        embedding_dim=embedding_dim,
+        service_account_key_path=service_account_key_path,
+        service_account_key_json=service_account_key_json,
+        project_id=project_id,
+        location=location
+    )
 
+    graphiti = Graphiti(
+        neo4j_uri,
+        neo4j_user,
+        neo4j_password,
+        llm_client=GeminiClient(config=llm_config),
+        embedder=GeminiEmbedder(config=embedder_config),
+        cross_encoder=GeminiRerankerClient(config=llm_config)
+    )
 
     try:
         # Initialize the graph database with graphiti's indices. This only needs to be done once.

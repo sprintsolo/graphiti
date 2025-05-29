@@ -83,7 +83,7 @@ class GeminiEmbedder(EmbedderClient):
                 credentials_obj = None
         
         # Get project ID
-        project_id = config.project_id or os.getenv('GOOGLE_CLOUD_PROJECT', 'gen-lang-client-0768783796')
+        project_id = config.project_id or os.getenv('GOOGLE_CLOUD_PROJECT')
         
         # Configure the Gemini API with Vertex AI
         if credentials_obj:
