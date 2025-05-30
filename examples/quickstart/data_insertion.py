@@ -164,7 +164,7 @@ async def import_airtable_data_to_graphiti(graphiti):
     # Create cache directory for company data
     cache_dir = pathlib.Path("cache")
     cache_dir.mkdir(exist_ok=True)
-    companies_cache_file = cache_dir / "new_companies_cache.json"
+    companies_cache_file = cache_dir / "city_based_companies_cache.json"
     
     # Load existing company cache if available
     companies_cache = {}
@@ -180,7 +180,7 @@ async def import_airtable_data_to_graphiti(graphiti):
     consecutive_errors = 0
     
     # Import contacts data and research their associated companies
-    for i, contact in enumerate(contacts[:], start=0):
+    for i, contact in enumerate(contacts[66:], start=66):
         fields = contact['fields']
         company_name = fields.get('Company Name', '').strip() if fields.get('Company Name') else None
         
@@ -222,10 +222,28 @@ async def import_airtable_data_to_graphiti(graphiti):
         
         # Research company data if company name is available
         if company_name:
+            # Extract location context from contact data
+            location_context = None
+            location_parts = []
+            
+            # Add city information if available
+            if fields.get('City'):
+                location_parts.append(fields.get('City'))
+            
+            # Add country/region information if available
+            if fields.get('Country/Region'):
+                location_parts.append(fields.get('Country/Region'))
+            
+            # Create location context string
+            if location_parts:
+                location_context = ', '.join(location_parts)
+                logger.info(f"Using location context for {company_name}: {location_context}")
+            
             # Check cache first
-            if company_name in companies_cache:
-                logger.info(f"Using cached data for company '{company_name}'")
-                company_data = companies_cache[company_name]
+            cache_key = f"{company_name}_{location_context}" if location_context else company_name
+            if cache_key in companies_cache:
+                logger.info(f"Using cached data for company '{company_name}' with location context '{location_context}'")
+                company_data = companies_cache[cache_key]
                 company_text = f"{company_name}"
                 
                 # 산업 정보 추가
@@ -253,10 +271,10 @@ async def import_airtable_data_to_graphiti(graphiti):
                 # Research company using Gemini API
                 logger.info(f"Researching company '{company_name}' with Gemini API...")
                 try:
-                    researched_company = await company_researcher.research_company(company_name)
+                    researched_company = await company_researcher.research_company(company_name, location_context)
                     if researched_company:
                         # Update cache with new company data
-                        companies_cache[company_name] = researched_company
+                        companies_cache[cache_key] = researched_company
                         
                         # Save updated cache
                         try:

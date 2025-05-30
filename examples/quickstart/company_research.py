@@ -53,7 +53,7 @@ class CompanyResearcher:
         
         self.max_tokens = 1024
     
-    async def research_company(self, company_name: str) -> Optional[Dict[str, Any]]:
+    async def research_company(self, company_name: str, location_context: str = None) -> Optional[Dict[str, Any]]:
         """
         Research company information using Gemini API with a two-step approach:
         1. First query with Google Search grounding to get information
@@ -61,15 +61,18 @@ class CompanyResearcher:
         
         Args:
             company_name: Name of the company to research
+            location_context: Optional location context (city/country) to help with company identification
             
         Returns:
             Dictionary with company information or None if unsuccessful
         """
         try:
             logger.info(f"Researching company: {company_name}")
+            if location_context:
+                logger.info(f"Using location context: {location_context}")
             
             # Step 1: Get information with Google Search grounding
-            search_info = await self._research_with_search(company_name)
+            search_info = await self._research_with_search(company_name, location_context)
             if not search_info:
                 logger.error(f"Failed to get information with search for {company_name}")
                 return None
@@ -110,12 +113,13 @@ class CompanyResearcher:
             logger.error(f"Exception type: {type(e).__name__}")
             return None
     
-    async def _research_with_search(self, company_name: str) -> Optional[str]:
+    async def _research_with_search(self, company_name: str, location_context: str = None) -> Optional[str]:
         """
         First step: Research company with Google Search grounding.
         
         Args:
             company_name: Name of the company to research
+            location_context: Optional location context (city/country) to help with company identification
             
         Returns:
             Information about the company or None if unsuccessful
@@ -123,17 +127,24 @@ class CompanyResearcher:
         try:
             logger.info(f"Step 1: Researching {company_name} with Google Search")
             
+            # Create the search query with location context if available
+            search_query = f"Research and provide detailed information about the company: {company_name}"
+            if location_context:
+                search_query += f" (located in or related to {location_context})"
+            
             # Create the prompt as a Content object
             content = types.Content(
                 role="user",
                 parts=[types.Part.from_text(
-                    text=f"""Research and provide detailed information about the company: {company_name}
+                    text=f"""{search_query}
                     
                     Focus on finding these specific details:
                     1. Industry the company operates in (please use GICS Industry Group classification) - IMPORTANT: Always use the English industry name even when responding in other languages
                     2. Country/Region where the company is headquartered
                     3. Number of employees (approximate)
                     4. A brief one-sentence description of what the company does (make it as concise as possible)
+                    
+                    {f"Additional context: The company may be related to or located in {location_context}. Please use this information to help identify the correct company if there are multiple companies with similar names." if location_context else ""}
                     
                     For the industry classification, specifically select ONE from this exact list of GICS Industry Groups:
                     1. Energy
@@ -310,7 +321,8 @@ async def test_company_research():
     """Test function to demonstrate usage."""
     api_key = os.environ.get("LLM_API_KEY")
     researcher = CompanyResearcher(api_key)
-    result = await researcher.research_company("Samsung Electronics")
+    # Test with location context
+    result = await researcher.research_company("Samsung Electronics", "Seoul, South Korea")
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":

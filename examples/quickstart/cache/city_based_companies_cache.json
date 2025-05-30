@@ -1,0 +1,836 @@
+{
+  "MEDICAL IP_Jongno-gu": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "86 to 95",
+    "Description": "MEDICAL IP is a pioneering company that develops medical imaging analysis platforms utilizing artificial intelligence and 3D technologies to create digital twins for enhanced diagnosis, surgical planning, education, and patient communication.",
+    "Country/Region": "South Korea"
+  },
+  "SAMSUNG_Suwon-Si, South Korea": {
+    "Industry": "Semiconductors & Semiconductor Equipment",
+    "Number_of_employee": "260,000-267,000",
+    "Description": "Samsung Electronics is a multinational corporation specializing in the manufacturing and selling of a wide range of electronics, including smartphones, televisions, home appliances, and semiconductor components.",
+    "Country/Region": "South Korea"
+  },
+  "BlockWealth Capital LLC_Delray Beach, United States of America": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "1-4",
+    "Description": "BlockWealth Capital LLC is a cryptocurrency hedge fund manager focusing on investments in blockchain technology, digital currency, and crypto-assets.",
+    "Country/Region": "United States of America"
+  },
+  "Breathwrk Inc._Singapore, USA": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "11-50",
+    "Description": "Breathwrk Inc. provides a mobile application offering science-backed breathing exercises to help users manage stress and anxiety, improve sleep, increase focus, and enhance athletic performance.",
+    "Country/Region": "United States"
+  },
+  "Patamar Capital_Singapore, Indonesia": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 21,
+    "Description": "Patamar Capital is an impact-driven venture capital firm that invests in early-stage technology companies in South and Southeast Asia with the dual goal of achieving financial returns and creating positive social impact for underserved populations.",
+    "Country/Region": "Indonesia"
+  },
+  "오이스터에이블_Seoul": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 25,
+    "Description": "오이스터에이블은 AIoT 기반의 무인 수거 시스템과 모바일 앱을 통해 재활용 및 재사용을 촉진하고 참여자에게 보상을 제공하는 자원 순환 솔루션을 개발하고 운영합니다.",
+    "Country/Region": "South Korea"
+  },
+  "pzartech_Tel Aviv": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "1-10",
+    "Description": "Pzartech develops visual recognition software using AI to help industrial maintenance operators identify mechanical parts quickly.",
+    "Country/Region": "Israel"
+  },
+  "WITCH COMPANY_Seoul": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 20,
+    "Description": "Operator of an NFT metaverse platform intended to trade in content, enabling digital artists to secure their original content with blockchain.",
+    "Country/Region": "South Korea"
+  },
+  "바이오레스텍 (biorestec)_South Korea": {
+    "Industry": "Energy",
+    "Number_of_employee": 5,
+    "Description": "음식물 및 산업 폐기물을 친환경적으로 처리하여 신재생에너지원(고형 연료)으로 전환하는 기업입니다.",
+    "Country/Region": "South Korea"
+  },
+  "IRIDIUM DYNAMICS_Brisbane, Australia": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": "3-10",
+    "Description": "Iridium Dynamics is a Brisbane, Australia-based company that manufactures high-performance fixed-wing unmanned aerial vehicles (UAVs) and related components for commercial applications requiring long endurance and hovering capabilities.",
+    "Country/Region": "Australia"
+  },
+  "Beacon Fund_Singapore, Vietnam": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "6-25",
+    "Description": "Beacon Fund is a private debt fund in Southeast Asia that provides financing to women-owned and women-led small and medium-sized enterprises with a focus on gender equality and social impact.",
+    "Country/Region": "Singapore"
+  },
+  "유한회사 컴퍼니에이_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "10-17",
+    "Description": "유한회사 컴퍼니에이 accelerates and invests in startups with a focus on global expansion and building a global network.",
+    "Country/Region": "South Korea"
+  },
+  "한국농업기술진흥원_Pangyo, South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "300-400",
+    "Description": "한국농업기술진흥원은 농촌진흥청 산하 공공기관으로, 농업과학기술 연구개발 성과의 실용화 및 농산업체 성장을 지원합니다.",
+    "Country/Region": "South Korea"
+  },
+  "Samho Green Investment_Seoul, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "7 to 11",
+    "Description": "Samho Green Investment is a South Korean venture capital firm primarily investing in early-stage companies with a focus on green technologies and other high-tech sectors.",
+    "Country/Region": "South Korea"
+  },
+  "한국보건산업진흥원_Cheongwon-gun, South Korea": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "400-500",
+    "Description": "한국보건산업진흥원(KHIDI)은 대한민국 보건산업 육성 및 발전을 체계적이고 전문적으로 지원하여 국민건강 향상과 국가 경제 발전에 기여하는 정부 산하 공공기관입니다.",
+    "Country/Region": "South Korea"
+  },
+  "산업은행_Korea, South Korea": {
+    "Industry": "Banks",
+    "Number_of_employee": "Approximately 1,100 - 1,200",
+    "Description": "Korea Development Bank is a South Korean state-owned development bank established to finance and manage major industrial projects, support industrial development, and stabilize the national economy through corporate banking, investment banking, and corporate restructuring.",
+    "Country/Region": "South Korea"
+  },
+  "500 Startups_San Francisco, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "around 2.4K",
+    "Description": "500 Global is a venture capital firm that invests early in founders building fast-growing technology companies globally, providing them with investment, education, resources, and a vast network to help them scale.",
+    "Country/Region": "United States"
+  },
+  "Korelya Capital_Paris, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 20,
+    "Description": "Korelya Capital is a venture capital firm that invests in European technology startups with global ambitions, providing capital and access to Asian markets.",
+    "Country/Region": "France"
+  },
+  "디이엠테크_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 7,
+    "Description": "디이엠테크 is a specialized development company focusing on artificial intelligence and big data technologies.",
+    "Country/Region": "South Korea"
+  },
+  "Global Innovation Fund_Ramat-Gan, USA": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "29 to 45",
+    "Description": "The Global Innovation Fund is a non-profit investment fund that supports and scales social innovations designed to improve the lives of the poorest people in developing countries.",
+    "Country/Region": "United Kingdom"
+  },
+  "iventurus.com_서울시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "between 1 and 10",
+    "Description": "Commax Venturus is a Seoul-based accelerator and venture capital firm that invests in and supports early-stage technology startups.",
+    "Country/Region": "South Korea"
+  },
+  "HYUNDAI MOTOR GROUP_Gurugram": {
+    "Industry": "Automobiles & Components",
+    "Number_of_employee": 126069,
+    "Description": "Hyundai Motor Group is a global enterprise that manufactures and distributes automobiles and related components, and is expanding into future mobility solutions.",
+    "Country/Region": "South Korea"
+  },
+  "갤럭시아머니트리_Seoul, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "137 - 149",
+    "Description": "Galaxia Moneytree provides online and offline payment solutions, operates a mobile financial platform, and engages in O2O and platform businesses, including mobile gift certificates and security token offerings.",
+    "Country/Region": "South Korea"
+  },
+  "SK planet_Seoul, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 2283,
+    "Description": "SK Planet is a data and tech company that develops and operates internet platforms, including e-commerce, online-to-offline services, and digital marketing solutions.",
+    "Country/Region": "South Korea"
+  },
+  "DB손해보험_South Korea": {
+    "Industry": "Insurance",
+    "Number_of_employee": 4617,
+    "Description": "DB손해보험은 자동차보험, 화재보험, 질병/상해보험 등 다양한 손해보험 상품의 인수 및 보험금 지급을 주된 사업으로 영위하는 대한민국의 종합 손해보험사입니다.",
+    "Country/Region": "대한민국"
+  },
+  "애드미션_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 29,
+    "Description": "애드미션 is a digital marketing agency in South Korea specializing in online advertising and social network services.",
+    "Country/Region": "South Korea"
+  },
+  "Brand Monk Licensing Pvt. Ltd._Mumbai, India": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "Information not available",
+    "Description": "Brand Monk Licensing Pvt. Ltd. is a Mumbai-based company specializing in brand licensing, facilitating the extension of brand value to products and bringing licensed merchandise to market in India.",
+    "Country/Region": "India"
+  },
+  "현대회계법인_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "210-250",
+    "Description": "Hyundai Accounting Corporation provides a range of accounting, tax, audit, and consulting services to companies.",
+    "Country/Region": "South Korea"
+  },
+  "Cape investment & Securities co,. Ltd._South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "250-500",
+    "Description": "Cape Investment & Securities Co., Ltd. is a South Korean financial firm providing securities brokerage, investment banking, and asset management services.",
+    "Country/Region": "South Korea"
+  },
+  "카카오_Cheju": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": "over 11,000",
+    "Description": "Kakao is a technology company that provides a wide range of digital services, including communication (KakaoTalk), finance, mobility, entertainment, gaming, and healthcare, primarily through its mobile platforms.",
+    "Country/Region": "South Korea"
+  },
+  "TORONTO GLOBAL_Toronto": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "32-37",
+    "Description": "Toronto Global is an investment attraction agency that provides services to international businesses looking to expand into the Toronto Region of Canada.",
+    "Country/Region": "Canada"
+  },
+  "D.notitia_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 90,
+    "Description": "D.notitia develops AI and semiconductor solutions, including large language models and a Vector Data Processing Unit, to provide high-performance and low-cost artificial intelligence capabilities.",
+    "Country/Region": "South Korea"
+  },
+  "Lab Central, Inc._Cambridge": {
+    "Industry": "Pharmaceuticals, Biotechnology & Life Sciences",
+    "Number_of_employee": "101-115",
+    "Description": "LabCentral is a non-profit organization in Cambridge, Massachusetts, that provides fully equipped laboratory and office space, resources, and support for early-stage life sciences and biotechnology startups.",
+    "Country/Region": "United States"
+  },
+  "신한은행_서울특별시": {
+    "Industry": "Banks",
+    "Number_of_employee": 14609,
+    "Description": "신한은행은 개인 및 기업 고객에게 소매 금융, 기업 금융, 투자 금융, 외국환 업무 등 광범위한 은행 및 금융 서비스를 제공하는 대한민국의 상업은행입니다.",
+    "Country/Region": "대한민국"
+  },
+  "AGMO_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 13,
+    "Description": "AGMO provides digital agricultural solutions and technology for autonomous farming, crop management, and overall farm operations.",
+    "Country/Region": "South Korea"
+  },
+  "신용보증기금_Daegu, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 2700,
+    "Description": "신용보증기금은 담보력이 부족한 중소기업에 신용보증 및 다양한 금융 서비스를 제공하여 자금 조달을 지원하고 경제 발전에 기여하는 대한민국의 정책금융기관이다.",
+    "Country/Region": "대한민국"
+  },
+  "CloudN_Seoul, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 21,
+    "Description": "CloudN Co., Ltd. is a South Korean startup specializing in AI-powered Building Energy Management Systems (BEMS) that provide an integrated platform for managing building energy and facilities.",
+    "Country/Region": "South Korea"
+  },
+  "한국 온라인 광고 협회_서울시": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": 12,
+    "Description": "한국디지털광고협회는 온라인 및 디지털 광고 산업의 발전, 자율 규제, 교육 및 회원사 간 협력을 지원하는 비영리 단체입니다.",
+    "Country/Region": "대한민국"
+  },
+  "TRGC_Amsterdam": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 5,
+    "Description": "TRGC is a venture capital firm that invests in companies and projects at the forefront of digital assets, blockchains, and related technologies.",
+    "Country/Region": "Netherlands"
+  },
+  "탭엔젤파트너스_서울특별시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "검색 결과에서 정확한 직원 수는 확인되지 않았습니다.",
+    "Description": "탭엔젤파트너스는 초기 단계 스타트업을 발굴하고 투자하며 성장을 지원하는 액셀러레이터 및 벤처 투자사입니다.",
+    "Country/Region": "대한민국"
+  },
+  "아라레연구소_Seoul": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "2 to 6",
+    "Description": "아라레연구소는 의료 진단 및 치료(특히 암 수술)와 산업용 방사능 모니터링을 위한 첨단 감마선 영상화 장비를 개발하고 있습니다.",
+    "Country/Region": "South Korea"
+  },
+  "이스트에이드_서울시": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "60-61",
+    "Description": "이스트에이드는 포털 사이트 줌(ZUM)을 운영하며 인터넷 검색, 뉴스, 쇼핑 등 다양한 콘텐츠 및 AI 기반 서비스를 제공하는 인터넷 서비스 기업입니다.",
+    "Country/Region": "South Korea"
+  },
+  "남도마켓_서울시": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 30,
+    "Description": "남도마켓 operates an online B2B platform facilitating wholesale transactions, particularly connecting retailers with vendors in markets like Namdaemun Market in South Korea.",
+    "Country/Region": "South Korea"
+  },
+  "서울산업진흥원_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "400명 이상",
+    "Description": "서울산업진흥원(SBA)은 서울특별시 출연 기관으로, 서울 소재 중소기업의 경쟁력 강화 및 경영 환경 개선을 위한 종합적이고 체계적인 지원 사업을 수행하여 서울 경제 활성화에 기여합니다.",
+    "Country/Region": "대한민국 서울"
+  },
+  "cochlear.ai_San Jose": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "11-50",
+    "Description": "Cochl.ai develops an AI-based machine listening system and sound AI platform that enables machines to understand and analyze any sounds like a human.",
+    "Country/Region": "South Korea"
+  },
+  "CSSi LifeSciences_Linthicum": {
+    "Industry": "Pharmaceuticals, Biotechnology & Life Sciences",
+    "Number_of_employee": "78 to 500",
+    "Description": "QNova LifeSciences provides regulatory and commercialization consulting services to help pharmaceutical and medical device companies navigate the path from discovery to market approval.",
+    "Country/Region": "United States"
+  },
+  "영원아웃도어_Seoul": {
+    "Industry": "Consumer Durables & Apparel",
+    "Number_of_employee": 223,
+    "Description": "영원아웃도어는 노스페이스 등 아웃도어 및 스포츠 브랜드를 국내에 유통하고 관련 제품을 제조 및 판매하는 기업입니다.",
+    "Country/Region": "대한민국"
+  },
+  "씨티엔에스(CTNS)_창원시, South Korea": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": "49 - 56",
+    "Description": "씨티엔에스는 다양한 애플리케이션을 위한 이차전지 배터리 팩 및 배터리 관리 시스템을 개발, 제조 및 관리합니다.",
+    "Country/Region": "South Korea"
+  },
+  "카카오엔터프라이즈_성남시, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "약 465명 - 520명",
+    "Description": "카카오엔터프라이즈는 기업 고객에게 인공지능 기반의 플랫폼, 클라우드 서비스 및 다양한 IT 솔루션을 제공하는 B2B 전문 기업입니다.",
+    "Country/Region": "South Korea"
+  },
+  "emart24_Seoul, South Korea": {
+    "Industry": "Food & Staples Retailing",
+    "Number_of_employee": 1138,
+    "Description": "Emart24 is a convenience store chain offering a wide range of products, including groceries, ready-to-eat meals, and other consumer goods.",
+    "Country/Region": "South Korea"
+  },
+  "벡스파인 투자자문_서울시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "5-6",
+    "Description": "The company provides investment advisory and discretionary investment management services.",
+    "Country/Region": "South Korea"
+  },
+  "N15PARTNERS_인천광역시": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 28,
+    "Description": "N15PARTNERS is a startup accelerator and open innovation platform that discovers, nurtures, and invests in early-stage companies and connects them with larger corporations for collaboration and growth.",
+    "Country/Region": "South Korea"
+  },
+  "아이디벤처스_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "9-11",
+    "Description": "아이디벤처스는 지식재산(IP) 가치가 높은 한국 기반 스타트업 및 벤처 기업에 투자하는 벤처캐피탈 회사입니다.",
+    "Country/Region": "South Korea"
+  },
+  "(재)스마일게이트 희망스튜디오_Seongnam-si, South Korea": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": "Information not readily available for foundation",
+    "Description": "Smilegate Hope Studio is a non-profit foundation by game company Smilegate that utilizes gaming and content to support children and youth, promote creativity, and facilitate social contribution.",
+    "Country/Region": "South Korea"
+  },
+  "KB국민카드_Henderson": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "1,500 - 1,600",
+    "Description": "KB국민카드 is a leading credit card company in South Korea, offering a wide range of credit and check cards and related financial services.",
+    "Country/Region": "South Korea"
+  },
+  "Samchully Investment_서울특별시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "Not specified for Samchully Investment Co., Ltd.; parent company Samchully Co., Ltd. has approximately 835-868 employees.",
+    "Description": "Samchully Investment Co., Ltd. is a new technology finance company and venture capital firm primarily engaged in providing investment to companies with innovative technologies and business models.",
+    "Country/Region": "South Korea"
+  },
+  "한독": {
+    "Industry": "Pharmaceuticals, Biotechnology & Life Sciences",
+    "Number_of_employee": 990,
+    "Description": "한독은 의약품, 의료기기, 건강기능식품 등 다양한 헬스케어 솔루션을 제공하는 토탈 헬스케어 기업이다.",
+    "Country/Region": "South Korea"
+  },
+  "Digitaraya_Jakarta Pusat,  Indonesia": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "3 to 6",
+    "Description": "Digitaraya is a startup accelerator based in Jakarta, Indonesia, that provides training, mentorship, and resources to help new companies grow.",
+    "Country/Region": "Indonesia"
+  },
+  "젤리코스터_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "12-13",
+    "Description": "Jellycoaster is a South Korean company involved in the development and supply of system software.",
+    "Country/Region": "South Korea"
+  },
+  "grvtlabs.com_Seoul, Korea, Republic of": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "11-50 people",
+    "Description": "grvtlabs.com develops the Moneywalk mobile app that rewards users with points or cash for walking and engaging in other health-related activities.",
+    "Country/Region": "South Korea"
+  },
+  "vsvcapital.com": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "11-50",
+    "Description": "VSV Capital is a venture capital firm and accelerator based in Vietnam that invests in early-stage technology startups.",
+    "Country/Region": "Vietnam"
+  },
+  "네패스_서울시": {
+    "Industry": "Semiconductors & Semiconductor Equipment",
+    "Number_of_employee": "1080-1101",
+    "Description": "네패스는 시스템 반도체 첨단 후공정 파운드리 사업, 반도체 및 디스플레이 제조용 전자재료 사업, 그리고 이차전지 부품 사업을 영위하는 기업입니다.",
+    "Country/Region": "대한민국"
+  },
+  "Stelo Bio (스텔로바이오)_Seoul, South Korea": {
+    "Industry": "Pharmaceuticals, Biotechnology & Life Sciences",
+    "Number_of_employee": 6,
+    "Description": "Stelo Bio (스텔로바이오)는 생물학적 제제 및 화학 제품의 연구 개발과 제조에 주력하는 기업으로, 혁신적인 줄기세포 기술을 개발합니다.",
+    "Country/Region": "South Korea"
+  },
+  "S Cubic Angels_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 32,
+    "Description": "S Cubic Angels is an investment firm that identifies and invests in early-stage startups.",
+    "Country/Region": "South Korea"
+  },
+  "AJU_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "501-1000",
+    "Description": "AJU Group is a South Korean conglomerate holding company with diverse business interests including construction materials, financial services, automobiles, real estate, hotels, and IT.",
+    "Country/Region": "South Korea"
+  },
+  "앵글컴퍼니_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "under 10",
+    "Description": "앵글컴퍼니 주식회사 is a service-based company providing AI-based software and digital platform technology solutions to enhance corporate value, specializing in generative AI agents for various industries.",
+    "Country/Region": "South Korea"
+  },
+  "NatureGrowth_Israel": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": "11-50",
+    "Description": "NatureGrowth is an Israeli Agtech incubator that supports and invests in early-stage agricultural technology companies to develop innovative solutions for global agricultural challenges.",
+    "Country/Region": "Israel"
+  },
+  "TrustVerse Pte. Ltd._Singapore": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "11 and 50",
+    "Description": "TrustVerse Pte. Ltd. is a fintech company that provides digital wealth management solutions and services for digital assets using AI and blockchain technology.",
+    "Country/Region": "Singapore"
+  },
+  "jcdecaux.com_Australia": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": 500,
+    "Description": "JCDecaux is a multinational corporation specializing in outdoor advertising through street furniture, transport advertising, and billboards.",
+    "Country/Region": "France"
+  },
+  "SoftBank Ventures Korea_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "11 to 50",
+    "Description": "SoftBank Ventures Asia is a venture capital firm based in Seoul, South Korea, specializing in early to growth-stage investments in technology startups across various sectors including AI, robotics, and enterprise software.",
+    "Country/Region": "South Korea"
+  },
+  "대구창조경제혁신센터_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "약 50-60명",
+    "Description": "대구창조경제혁신센터는 유망 스타트업 발굴, 육성, 투자 및 글로벌 진출 지원 등 창업 생태계 조성을 위한 다양한 프로그램을 운영하는 재단법인입니다.",
+    "Country/Region": "South Korea"
+  },
+  "대전창조경제혁신센터_대전광역시": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 17,
+    "Description": "It is a foundation established in cooperation with the government, local government, and the private sector to contribute to the realization and spread of the creative economy by discovering and nurturing startups and strengthening the regional창업 ecosystem.",
+    "Country/Region": "South Korea"
+  },
+  "SK 텔레콤_Seoul, South Korea": {
+    "Industry": "Telecommunication Services",
+    "Number_of_employee": 24224,
+    "Description": "SK Telecom is a South Korean wireless telecommunications operator that provides mobile, broadband, and media services, and is expanding into new ICT areas like AI, metaverse, and connected intelligence.",
+    "Country/Region": "South Korea"
+  },
+  "한국정보보호산업협회_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 50,
+    "Description": "The Korea Information Security Industry Association (KISIA) is a non-profit organization in South Korea dedicated to supporting and promoting the growth of the information security industry.",
+    "Country/Region": "South Korea"
+  },
+  "FreeMind Group LLC_Jerusalem, USA": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "around 60 to 86",
+    "Description": "FreeMind Group LLC is an international consulting firm that helps life science companies and institutions obtain non-dilutive funding from US federal agencies and private foundations.",
+    "Country/Region": "USA"
+  },
+  "라이즈_South Korea": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": "Approximately 21",
+    "Description": "Operates foreign language institutes, primarily focusing on English education.",
+    "Country/Region": "South Korea"
+  },
+  "시저스랩_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "정보 없음",
+    "Description": "시저스랩은 인공지능(AI)과 메타버스 분야에 특화된 스타트업 액셀러레이터로서 창업 교육, 컨설팅 및 액셀러레이팅 서비스를 제공합니다.",
+    "Country/Region": "대한민국"
+  },
+  "성부": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": 27,
+    "Description": "성부산업 develops and supplies agricultural machinery, including motorized high-place work vehicles and other equipment.",
+    "Country/Region": "Republic of Korea"
+  },
+  "아라마크_Philadelphia, South Korea": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": "약 266,680명",
+    "Description": "Aramark은 교육, 의료, 기업 및 산업체, 스포츠, 여가 및 교정 시설 등 다양한 분야의 고객에게 식음료 서비스, 시설 관리 및 유니폼 서비스를 제공하는 선도적인 글로벌 기업입니다.",
+    "Country/Region": "United States"
+  },
+  "주식회사 에이치투넷_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "3-10",
+    "Description": "The company specializes in providing intelligent integrated energy control system services, particularly for the hydrogen energy sector, by combining ICT technology.",
+    "Country/Region": "South Korea"
+  },
+  "PT. Garena Indonesia_makassar": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": "1,001 - 5,000",
+    "Description": "PT. Garena Indonesia is a digital entertainment company that develops, publishes, and distributes online games and organizes esports events.",
+    "Country/Region": "Indonesia"
+  },
+  "Korea Venture Investment Corp._South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 200,
+    "Description": "Korea Venture Investment Corp. is a government-funded entity that operates as a fund of funds, primarily investing in venture capital and private equity funds to support small and medium-sized enterprises (SMEs) and startups.",
+    "Country/Region": "South Korea"
+  },
+  "First Forte Consultancy_Dubai and Fujairah": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 8,
+    "Description": "First Forte Consultancy is a multi-disciplinary firm based in the UAE that provides advisory, business development, and financial consulting services, connecting clients in the GCC region with international investment opportunities and fund managers.",
+    "Country/Region": "United Arab Emirates"
+  },
+  "MOIN, Inc_Seocho-gu, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "Varies (11-200)",
+    "Description": "MOIN, Inc. provides a cross-border payment network and remittance service utilizing technology to enable international money transfers for individuals and businesses.",
+    "Country/Region": "South Korea"
+  },
+  "Stemden_Memphis, South Korea": {
+    "Industry": "Pharmaceuticals, Biotechnology & Life Sciences",
+    "Number_of_employee": "5 to 49",
+    "Description": "Stemden develops oral stem cell activity regulators and tissue regeneration products for dental and oral health applications.",
+    "Country/Region": "South Korea"
+  },
+  "MicroPort": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": 6347,
+    "Description": "MicroPort Scientific Corporation is a global medical technology company specializing in the research, development, manufacturing, and marketing of high-end medical devices across various therapeutic areas.",
+    "Country/Region": "China"
+  },
+  "한국마이크로소프트_Redmond": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 527,
+    "Description": "Microsoft Korea is the South Korean subsidiary of Microsoft Corporation, providing software, cloud services, and IT solutions with a focus on digital transformation for businesses and organizations.",
+    "Country/Region": "South Korea"
+  },
+  "Kakao Corp._Cheju": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "varies, around 4,000 to 14,000",
+    "Description": "Kakao Corp. operates a diverse range of digital platforms and services, including the dominant mobile messaging app KakaoTalk, and has expanded into areas such as finance, mobility, entertainment, and gaming.",
+    "Country/Region": "South Korea"
+  },
+  "카본엔네이처_South Korea": {
+    "Industry": "Retailing",
+    "Number_of_employee": 1,
+    "Description": "Carbon & Nature Co., Ltd. operates as an e-commerce retailer.",
+    "Country/Region": "Republic of Korea"
+  },
+  "Shinhan Capital_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "Exact number for subsidiary not available, parent company Shinhan Financial Group has approximately 17,200 to 30,000 employees.",
+    "Description": "Shinhan Capital is a South Korean credit finance company offering services including leasing, loans, investment, and corporate finance.",
+    "Country/Region": "South Korea"
+  },
+  "Original Innovation Group_Irvine, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 7,
+    "Description": "Original Innovation Group operates a digital marketplace platform, Pickit, specializing in the creation, sale, and trading of digital collectibles, primarily K-pop idol photo cards.",
+    "Country/Region": "South Korea"
+  },
+  "안드로메다_South Korea": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": "15-30",
+    "Description": "안드로메다게임즈는 온라인 및 모바일 게임의 개발 및 서비스를 전문으로 합니다.",
+    "Country/Region": "South Korea"
+  },
+  "AUTONOMOUS a2z_경산시": {
+    "Industry": "Automobiles & Components",
+    "Number_of_employee": 200,
+    "Description": "The company develops autonomous driving technology and platforms for various applications, including autonomous shuttles and logistics vehicles.",
+    "Country/Region": "South Korea"
+  },
+  "경기창조경제혁신센터_성남시": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "약 60명",
+    "Description": "경기창조경제혁신센터는 스타트업 및 벤처 기업의 성장과 글로벌 진출을 지원하며, 특히 IT 기반 신산업 분야의 창업 생태계 활성화를 돕는 재단법인입니다.",
+    "Country/Region": "South Korea"
+  },
+  "Woojinelect_Suwon, South Korea": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": "100-249",
+    "Description": "Woojin Elect Mechanical & Electric Co., Ltd. is an industrial power equipment integration platform company providing products and engineering solutions in power quality, power systems, power equipment, and new and renewable energy.",
+    "Country/Region": "South Korea"
+  },
+  "KRAFTON_Gangnam-gu, South Korea": {
+    "Industry": "Media & Entertainment",
+    "Number_of_employee": "1,500 to 1,700",
+    "Description": "KRAFTON is a South Korean video game holding company primarily engaged in the creation and distribution of immersive gaming experiences for various platforms, known for titles like PUBG: Battlegrounds.",
+    "Country/Region": "Republic of Korea"
+  },
+  "Dutaland": {
+    "Industry": "Real Estate",
+    "Number_of_employee": 88,
+    "Description": "Dutaland Berhad is an investment holding company involved in property development, oil palm cultivation, and the trading of crude palm oil.",
+    "Country/Region": "Malaysia"
+  },
+  "한국엔젤투자협회": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 80,
+    "Description": "한국엔젤투자협회는 엔젤투자자 육성 및 스타트업과의 네트워크 구축을 통해 엔젤투자 생태계를 조성하고 기업 성장을 지원하는 기관입니다.",
+    "Country/Region": "대한민국"
+  },
+  "HYUNDAI_Gurugram, South Korea": {
+    "Industry": "Automobiles & Components",
+    "Number_of_employee": "approximately 75,000",
+    "Description": "Hyundai Motor Company is a South Korean multinational automotive manufacturer that produces and distributes motor vehicles and parts globally.",
+    "Country/Region": "South Korea"
+  },
+  "NH Investment & Securities_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "800 to 3,100",
+    "Description": "NH Investment & Securities is a leading securities firm in Korea offering a range of financial services including wealth management, investment banking, trading, and brokerage.",
+    "Country/Region": "South Korea"
+  },
+  "신한 스퀘어브릿지_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "Information not readily available for the specific platform, operates as an initiative of Shinhan Financial Group",
+    "Description": "Shinhan Square Bridge is a startup acceleration platform by Shinhan Financial Group that provides comprehensive support, including incubation, acceleration, investment, and global expansion assistance, to innovative startups.",
+    "Country/Region": "South Korea"
+  },
+  "weflo_Daejeon, south korea, south korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 11,
+    "Description": "Weflo offers AI and big data-powered solutions for the safety diagnosis and maintenance of drones and urban air mobility aircraft.",
+    "Country/Region": "South Korea"
+  },
+  "엠플_South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 15,
+    "Description": "(주)엠플 provides software and IT solutions, including consulting, cloud, backup, security, and business software, to corporate clients.",
+    "Country/Region": "South Korea"
+  },
+  "University of NICOSIA_Nicosia, Cyprus": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": "501 to 1000",
+    "Description": "The University of Nicosia is a private university offering a diverse range of academic programs to both local and international students.",
+    "Country/Region": "Cyprus"
+  },
+  "SparkLabs_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 60,
+    "Description": "SparkLabs is a startup accelerator and venture capital firm that provides funding, mentorship, and resources to early-stage technology companies aiming for global expansion.",
+    "Country/Region": "South Korea"
+  },
+  "인천대학교_South Korea": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": 1178,
+    "Description": "인천대학교 is a national university in South Korea providing higher education and conducting research.",
+    "Country/Region": "South Korea"
+  },
+  "노스마운틴_서울시": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 1,
+    "Description": "노스마운틴 주식회사 is a South Korean company providing professional services, primarily in management consulting.",
+    "Country/Region": "South Korea"
+  },
+  "SK텔레콤_Seoul": {
+    "Industry": "Telecommunication Services",
+    "Number_of_employee": 34847,
+    "Description": "SK텔레콤은 이동통신, 유선 통신, 브로드밴드 인터넷 및 다양한 정보통신 기술 서비스를 제공하는 대한민국의 무선 통신 사업자입니다.",
+    "Country/Region": "South Korea"
+  },
+  "에버그린투자파트너스(유)_서울특별시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "4-5",
+    "Description": "에버그린투자파트너스(유)는 ICT, 바이오 등 다양한 분야의 기술 기반 초기 창업 기업에 투자하고 육성하는 벤처캐피탈입니다.",
+    "Country/Region": "South Korea"
+  },
+  "Medipixel, Inc._Seoul, South Korea": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": 54,
+    "Description": "Medipixel develops AI-based technology for the diagnosis and treatment of cardiovascular diseases, including software as a medical device (SaMD) and AI-powered robotic control for surgical procedures.",
+    "Country/Region": "South Korea"
+  },
+  "KILSA GLOBAL PTE.LTD._Singapore": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "not publicly available",
+    "Description": "KILSA Global PTE. LTD. is a market entry and business management specialist firm headquartered in Singapore that helps companies, particularly tech-based ones, expand and localize in overseas markets, primarily in Southeast Asia, by providing consulting, business development, and operational support.",
+    "Country/Region": "Singapore"
+  },
+  "kaspersky_Stadtkreis 1 Altstadt": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "4,000+",
+    "Description": "Kaspersky is a cybersecurity company that develops and sells antivirus, internet security, endpoint security, and other digital threat protection products and services.",
+    "Country/Region": "Russia"
+  },
+  "aum-vc.com_서울특별시": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 4,
+    "Description": "AUM Ventures is an early and pre-growth stage venture capital fund that empowers innovative tech/tech-enabled and consumer-focused entrepreneurs, primarily in India.",
+    "Country/Region": "United Arab Emirates"
+  },
+  "d.camp_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 32,
+    "Description": "d.camp is a non-profit organization funded by Korean banks that serves as a central hub in Seoul, offering investment, workspace, and a supportive network to cultivate and accelerate the growth of early-stage startups.",
+    "Country/Region": "South Korea"
+  },
+  "금융경제연구소": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "정보 없음",
+    "Description": "금융경제연구소는 금융 정책, 산업 및 경제 전반에 대한 연구를 통해 금융 시장 발전과 금융 노동자 권익 향상에 기여하는 연구 기관입니다.",
+    "Country/Region": "South Korea"
+  },
+  "모핑아이": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 15,
+    "Description": "모핑아이는 인공지능 및 로봇 기술을 활용하여 인프라 관리 솔루션을 개발하며, 블록체인, AI, 메타버스 기술 기반의 플랫폼 서비스도 제공합니다.",
+    "Country/Region": "대한민국"
+  },
+  "배화여자대학교_서울시": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": 256,
+    "Description": "Baewha Women's University is a private higher education institution in Seoul, South Korea, providing a variety of academic programs primarily for women.",
+    "Country/Region": "South Korea"
+  },
+  "KB \bInvestment": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 69,
+    "Description": "KB Investment is a venture capital and private equity firm that invests in companies across various sectors and stages, providing financial backing and management services.",
+    "Country/Region": "South Korea"
+  },
+  "Translink Investment (트랜스링크)_Seoul, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "13명",
+    "Description": "국내외 스타트업의 글로벌 진출 및 성장을 지원하는 벤처 캐피탈 회사입니다.",
+    "Country/Region": "South Korea"
+  },
+  "초간단 물류경쟁력, 콜로세움": {
+    "Industry": "Transportation",
+    "Number_of_employee": "70-80",
+    "Description": "초간단 물류경쟁력, 콜로세움은 인공지능 기반의 풀필먼트 서비스를 통해 이커머스 셀러들의 물류 경쟁력 강화를 지원하는 기업입니다.",
+    "Country/Region": "대한민국"
+  },
+  "Skilfinity_Singapore, Singapore": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "less than 10 to 10",
+    "Description": "Skilfinity is a global full-service digital marketing, analytics, and marketing consulting company providing services like web development, SEO, social media marketing, and PPC to drive digital branding and lead generation.",
+    "Country/Region": "Singapore"
+  },
+  "첨단정보통신융합산업기술원_Daegu": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "정보 없음",
+    "Description": "첨단정보통신융합산업기술원은 첨단 정보통신 기술과 다양한 산업의 융합을 통해 기술 개발, 상용화 및 지역 기업 지원을 수행하는 연구 및 지원 기관입니다.",
+    "Country/Region": "South Korea"
+  },
+  "울산대학교_Ulsan": {
+    "Industry": "Consumer Services",
+    "Number_of_employee": "1,000 - 1,800",
+    "Description": "Ulsan University is a private comprehensive university in Ulsan, South Korea, providing a wide range of higher education programs.",
+    "Country/Region": "South Korea"
+  },
+  "경기창조경제혁신센터_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": 60,
+    "Description": "경기창조경제혁신센터는 스타트업의 발굴, 육성, 투자 유치 및 글로벌 진출 등을 지원하여 창조경제 실현에 기여하는 재단법인입니다.",
+    "Country/Region": "South Korea"
+  },
+  "K-GROUND VENTURES_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "2 to 10",
+    "Description": "K-GROUND VENTURES is a South Korea-based venture capital firm that invests in technology startups, primarily in Series B funding rounds.",
+    "Country/Region": "South Korea"
+  },
+  "SparkLabs Global_Palo Alto, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "8 to 29",
+    "Description": "SparkLabs Global Ventures is a venture capital firm headquartered in Palo Alto, California, United States, focusing on seed-stage investments in global startups.",
+    "Country/Region": "United States"
+  },
+  "내경엔지니어링_안양시": {
+    "Industry": "Capital Goods",
+    "Number_of_employee": 130,
+    "Description": "내경엔지니어링 provides comprehensive engineering services including urban planning, civil engineering design, construction management, impact assessments, and architectural design, with a strong focus on infrastructure projects like roads and highways.",
+    "Country/Region": "South Korea"
+  },
+  "아워박스_South Korea": {
+    "Industry": "Transportation",
+    "Number_of_employee": 135,
+    "Description": "아워박스 provides integrated e-commerce fulfillment services, handling logistics from storage to delivery.",
+    "Country/Region": "South Korea"
+  },
+  "세종벤처파트너스_South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": "Information not available for this specific entity",
+    "Description": "세종벤처파트너스 is a venture capital firm that invests in startup and venture companies, with a focus on sectors such as biotechnology and ICT, and manages venture funds.",
+    "Country/Region": "South Korea"
+  },
+  "KOISRA Seed Partners_Seoul, South Korea": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 6,
+    "Description": "KOISRA Seed Partners is a Korean-Israeli seed fund and mentorship-driven accelerator focused on transforming Korean startups into global successes by providing funding, mentoring, and networking opportunities.",
+    "Country/Region": "South Korea"
+  },
+  "신한DS_Seoul": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 935,
+    "Description": "Shinhan DS is a financial IT specialized company providing digital transformation, system integration, information security, and IT consulting services.",
+    "Country/Region": "South Korea"
+  },
+  "호패_Seoul, South Korea": {
+    "Industry": "Software & Services",
+    "Number_of_employee": "14-17",
+    "Description": "Hopae is a digital identity startup that provides secure and instant identity verification solutions using Decentralized Identity (DID) technology.",
+    "Country/Region": "South Korea"
+  },
+  "ZISHEL GROUP_GANGNAM-GU, South Korea": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": 345,
+    "Description": "ZISHEL GROUP researches, develops, manufactures, markets, and distributes medical technologies for plastic and aesthetic purposes.",
+    "Country/Region": "South Korea"
+  },
+  "대구 · 경북지방중소벤처기업청_South Korea": {
+    "Industry": "Commercial & Professional Services",
+    "Number_of_employee": "Not available",
+    "Description": "대구 · 경북지방중소벤처기업청 is a South Korean government agency that plans, coordinates, and implements policies and support programs for the growth, protection, and fostering of small and medium-sized enterprises and venture businesses in the Daegu and Gyeongbuk regions.",
+    "Country/Region": "South Korea"
+  },
+  "와이즈넛_성남": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 330,
+    "Description": "와이즈넛은 인공지능 챗봇, 빅데이터 수집/분석, 검색 솔루션 등 AI 및 빅데이터 기술을 활용하여 기업 및 기관에 소프트웨어 및 서비스를 제공하는 기업입니다.",
+    "Country/Region": "South Korea"
+  },
+  "mobydickam.com_Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 8,
+    "Description": "Mobydick Asset Management is an asset management firm headquartered in Seoul, South Korea.",
+    "Country/Region": "South Korea"
+  },
+  "Vensa_Auckland": {
+    "Industry": "Health Care Equipment & Services",
+    "Number_of_employee": "13-17",
+    "Description": "Vensa Health provides a digital health platform and messaging solutions connecting patients and healthcare providers for services like online bookings, repeat prescriptions, and health reminders.",
+    "Country/Region": "New Zealand"
+  },
+  "KNT Investment Co., Ltd._Seoul": {
+    "Industry": "Diversified Financials",
+    "Number_of_employee": 12,
+    "Description": "KNT Investment is a Cross Border Private Equity firm based in Seoul that invests in promising companies with technology and potential in South Korea, Southeast Asia, and North America, with a focus on global biotech companies.",
+    "Country/Region": "South Korea"
+  },
+  "정보통신산업진흥원": {
+    "Industry": "Software & Services",
+    "Number_of_employee": 454,
+    "Description": "정보통신산업진흥원(NIPA)은 ICT 및 소프트웨어 산업의 경쟁력 강화와 성장을 지원하고 디지털 혁신을 촉진하여 대한민국 경제 발전과 국민 삶의 질 향상에 기여하는 기관입니다.",
+    "Country/Region": "South Korea"
+  }
+}
